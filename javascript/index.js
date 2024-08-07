@@ -1,8 +1,30 @@
-const v = [1, 2, 3]
-console.log(v)
-// v.push(4)
-v = [1, 2, 3]
-console.log(v)
+const undefined = 3
+const nomes = ["Ana Maria", "André", "Leoanrdo", "Cléber", "Jorge"]
+
+console.log(undefined)
+// var nomes_com_A = []
+// nomes.forEach(element => {
+//     if (element[0].toLowerCase() =="a"){
+//         nomes_com_A.push(element)
+//     }
+        
+// });
+
+// console.log(nomes_com_A)
+
+
+// const nomes2 = []
+// for (let index = 0; index < nomes.length; index++) {
+//     nomes2.push(nomes[index][0]);
+// }
+// console.log(nomes2)
+
+
+// const v = [1, 2, 3]
+// console.log(v)
+// // v.push(4)
+// v = [1, 2, 3]
+// console.log(v)
 
 // v1 = []
 // console.log(v1.length)
