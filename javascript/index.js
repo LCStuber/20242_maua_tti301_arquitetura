@@ -1,7 +1,57 @@
-const undefined = 3
-const nomes = ["Ana Maria", "André", "Leoanrdo", "Cléber", "Jorge"]
+const calc = {
+	soma: function (o1, o2){
+        return o1 + o2
+    },
+	subtração: (o1, o2) => o1 - o2,
+}
+ 
 
-console.log(undefined)
+const encontrarVeículos = (marca) => {
+    	return concessionária.veículos.filter((veículo) => veículo.marca === marca)
+    }
+
+// const pessoa = {
+//     nome: "Maria",
+//     idade: 21,
+//     endereço: {
+//         rua: "Rua B",
+//         numero: 121
+//     }
+// };
+// console.log(pessoa.endereço.rua)
+
+// const concessionária = {
+//     nome: "Nome da concessionária",
+//     cnpj: "CNPJ",
+//     endereço: {
+//         rua: "Rua B",
+//         numero: 121
+//     },
+//     veículos: [
+//         {
+//             marca: "GM",
+//             modelo: "Cruze",
+//             ano: 2024
+//         }
+//     ]
+// };
+
+// for (const element of concessionária.veículos) {
+//     if (element.modelo === "Corolla"){
+//         console.log(element)
+//     }
+// }
+
+// const encontrarVeículos = (marca) => {
+// 	return concessionária.veículos.filter((veículo) => veículo.marca === marca)
+// }
+
+// console.log(encontrarVeículos("GM"))
+
+// const undefined = 3
+// const nomes = ["Ana Maria", "André", "Leoanrdo", "Cléber", "Jorge"]
+
+// console.log(undefined)
 // var nomes_com_A = []
 // nomes.forEach(element => {
 //     if (element[0].toLowerCase() =="a"){
