@@ -1,3 +1,29 @@
+function calculoRapidinho(n){
+    return n >= 0 ? Promise.resolve(n*(n+1)/2) : Promise.reject("Apenas valores positivos")
+}
+
+// const fs = require("fs");
+// const abrirArquivo = function(nomeArquivo){
+//     const exibirConteúdo = function(erro, conteúdo){
+//         if (erro){
+//             console.log(`Erro: ${erro}`);
+//         } else {
+//             console.log(`Conteúdo: ${conteúdo}`);
+//             const dobro = Number(conteúdo) * 2
+//             const finalizar = function (erro){
+//                 if (!erro){
+//                     console.log("Salvou o dobro com sucesso")
+//                 } else {
+//                     console.log("É amigo... Se lascou!")
+//                 }
+//             }
+//             fs.writeFile("dobro.txt", dobro.toString(), finalizar)
+//         }
+//     }
+//     fs.readFile(nomeArquivo, exibirConteúdo)
+//     console.log('Terminou a função abrirArquivo...')
+// }
+// abrirArquivo("arquivo.txt");
 // const undefined = 3
 // const nomes = ["Ana Maria", "André", "Leoanrdo", "Cléber", "Jorge"]
 
