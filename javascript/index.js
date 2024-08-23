@@ -1,6 +1,32 @@
-function calculoRapidinho(n){
-    return n >= 0 ? Promise.resolve(n*(n+1)/2) : Promise.reject("Apenas valores positivos")
+function calculoDemorado(n) {
+    let p = new Promise(function (resolve, reject) {
+        let res = 0
+        for (let i = 1; i <= n; i++) res += i
+        resolve(res)
+    })
+    return p
 }
+
+function comThenCatch() {
+    // 2015
+    calculoDemorado(10).then(res => {
+        console.log(res)
+        calculoDemorado(res + 1).then(res2 => {
+            console.log(res2)
+        })
+    }).catch(erro => {
+        console.error(`Erro: ${erro}`)
+    })
+}
+
+const comAsyncAwait = async () => {
+    const resultado = await calculoDemorado(10)
+    console.log(resultado)
+}
+
+// function calculoRapidinho(n){
+//     return n >= 0 ? Promise.resolve(n*(n+1)/2) : Promise.reject("Apenas valores positivos")
+// }
 
 // const fs = require("fs");
 // const abrirArquivo = function(nomeArquivo){
