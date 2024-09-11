@@ -1,5 +1,6 @@
 const express = require(`express`);
 const { v4: uuidv4 } = require('uuid');
+const axios = require('axios')
 require(`dotenv`).config();
 
 const app = express();
@@ -13,15 +14,21 @@ app.get(`/lembretes/:id/observacoes`, (req, res) => {
     res.json(observacoes[id] || []);
 });
 
-app.post(`/lembretes/:id/observacoes`, (req, res) => {
-    const id = req.params.id;
+app.post('/lembretes/:idLembrete/observacoes', async (req, res) => {
     const { texto } = req.body;
     const observacaoId = uuidv4();
-    observacoes[id] = {
+    const observacoesDoLembrete = observacoes[req.params.idLembrete] || []
+    observacoesDoLembrete.push({id: observacaoId, texto})
+    observacoes[req.params.idLembrete] = observacoesDoLembrete
+    await axios.post('http://localhost:10000/eventos', {
+        type: 'ObservacaoCriada',
+        payload: {
         id: observacaoId,
-        texto
-    };
-    res.status(201).json(observacoes[id]);
+        texto,
+        lembreteId: req.params.idLembrete
+        }
+    })
+    res.status(201).json(observacoesDoLembrete);
 });
 
 app.post('/eventos', (req, res) => {
