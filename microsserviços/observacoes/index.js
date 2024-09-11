@@ -24,6 +24,11 @@ app.post(`/lembretes/:id/observacoes`, (req, res) => {
     res.status(201).json(observacoes[id]);
 });
 
+app.post('/eventos', (req, res) => {
+    console.log(req.body)
+    res.status(200).json({mensagem: 'ok'})
+})
+
 app.listen(process.env.PORT, () => {
     console.log(`Observações. Porta: ${process.env.PORT}`);
 });

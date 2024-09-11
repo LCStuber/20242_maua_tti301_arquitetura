@@ -1,4 +1,5 @@
 const express = require(`express`)
+const axios = require('axios')
 require(`dotenv`).config()
 
 const app = express()
@@ -17,7 +18,19 @@ app.post(`/lembretes`, (req, res) => {
     lembretes[id] = {
         id, texto
     }
+    //usar a axios para emitir o evento
+    axios.post('http://localhost:10000/eventos', {
+        type: 'LembreteCriado',
+        payload: {
+            id, texto: req.body.texto
+        }
+    })
     res.status(201).json(lembretes[id])
+})
+
+app.post('/eventos', (req, res) => {
+    console.log(req.body)
+    res.status(200).json({ mensagem: 'ok' })
 })
 
 app.listen(process.env.PORT, () => {
