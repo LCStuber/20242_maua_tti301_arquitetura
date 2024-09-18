@@ -24,8 +24,13 @@ app.get("/lembretes", (req, res) => {
 
 
 app.post("/eventos", (req, res) => {
-    const evento = req.body
-    funções[evento.type](evento.payload)
+    try{
+        const evento = req.body
+        console.log(evento)
+        funcoes[evento.type](evento.payload)  
+      }
+      catch(err){}
+      res.json({msg: 'ok'})
 })
 
 app.listen(PORT, () => console.log(`Consulta. ${PORT}`))
