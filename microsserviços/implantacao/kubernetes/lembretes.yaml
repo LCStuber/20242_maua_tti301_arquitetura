@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: tti301-lembretes
-      image: lcstuber/tti301-lembretes:0.0.1
+      image: lcstuber/tti301-lembretes
       resources:
         limits:
           memory: 256Mi

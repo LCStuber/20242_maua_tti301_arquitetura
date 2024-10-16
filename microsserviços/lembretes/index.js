@@ -19,7 +19,7 @@ app.post(`/lembretes`, (req, res) => {
         id, texto
     }
     //usar a axios para emitir o evento
-    axios.post('http://localhost:10000/eventos', {
+    axios.post('http://tti301-barramento-de-eventos-service:10000/eventos', {
         type: 'LembreteCriado',
         payload: {
             id, texto: req.body.texto
@@ -34,5 +34,6 @@ app.post('/eventos', (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
+    console.log("Nova Versão")
     console.log(`Lembretes. Porta: ${process.env.PORT}`)
 })
