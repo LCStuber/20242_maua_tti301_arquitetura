@@ -18,6 +18,10 @@ app.post('/eventos', async (req, res) => {
   res.status(200).json({mensagem: 'ok'})
 })
 
+app.get('/eventos', function(req, res){
+  res.json(eventos)
+})
+
 app.listen(PORT, () => {
   console.log(`Barramento. Porta ${PORT}.`)
 });

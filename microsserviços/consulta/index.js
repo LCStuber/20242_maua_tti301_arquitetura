@@ -15,7 +15,13 @@ const funções = {
         const observações = baseConsulta[observação.lembreteId]['observacoes'] || []
         observações.push(observação)
         baseConsulta[observação.lembreteId]['observacoes'] = observações
-    }
+    },
+    ObservacaoAtualizada: (observacao) => {
+        const observacoes = baseConsulta[observacao.lembreteId]["observacoes"]
+        const indice = observacoes.findIndex((o) => o.id === observacao.id)
+        observacoes[indice] = observacao
+    
+      }
 }
 
 app.get("/lembretes", (req, res) => {
@@ -33,4 +39,13 @@ app.post("/eventos", (req, res) => {
       res.json({msg: 'ok'})
 })
 
-app.listen(PORT, () => console.log(`Consulta. ${PORT}`))
+app.listen(PORT, async () => {
+  console.log(`Consulta. ${PORT}`)
+  const resp = await axios.get('http://localhost:10000/eventos')
+  resp.data.forEach((valor, indice, colecao) => {
+    try{
+      funcoes[valor.type](valor.payload)
+    }
+    catch(err){}
+  })
+})
